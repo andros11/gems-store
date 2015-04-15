@@ -19,4 +19,30 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1429063089188</id>
+			<name>e2e-tests</name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.andFilterMatcher</id>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1429063227206</id>
+			<name>node_modules</name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.andFilterMatcher</id>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1429063046445</id>
+			<name>app/bower_components</name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.andFilterMatcher</id>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>

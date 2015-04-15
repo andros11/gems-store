@@ -1,1 +1,1 @@
-{"ide":{"scriptPaths":[{"type":"FOLDER","path":"app"}]},"plugins":{"guess-types":{},"angular":{}},"libs":["ecma5","browser","jquery"]}
+{"ide":{"scriptPaths":[{"type":"FILE","path":"app/app.js"},{"type":"FILE","path":"app/descriptions.html"},{"type":"FILE","path":"app/index.html"},{"type":"FILE","path":"app/product-tabs.html"},{"type":"FILE","path":"app/products.js"},{"type":"FILE","path":"app/specs.html"},{"type":"FILE","path":"app/style.css"}]},"plugins":{"guess-types":{},"angular":{}},"libs":["ecma5","browser","jquery"]}
