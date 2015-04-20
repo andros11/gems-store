@@ -5,33 +5,39 @@
     <meta charset="utf-8" />
     <title>My Gem Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-require="jquery@*" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <link data-require="bootstrap-css" data-semver="3.3.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <link data-require="semantic-ui@*" data-semver="0.9.6" rel="stylesheet" href="https://raw.github.com/Semantic-Org/Semantic-UI/0.9.6/build/packaged/css/semantic.min.css" />
-    <script data-require="semantic-ui@*" data-semver="0.9.6" src="https://raw.github.com/Semantic-Org/Semantic-UI/0.9.6/build/packaged/javascript/semantic.min.js"></script>
+    <link data-require="semantic-ui@*" data-semver="0.9.6" rel="stylesheet" href="https://rawgit.com/Semantic-Org/Semantic-UI/0.9.6/build/packaged/css/semantic.min.css" />
+    <script data-require="semantic-ui@*" data-semver="0.9.6" src="https://rawgit.com/Semantic-Org/Semantic-UI/0.9.6/build/packaged/javascript/semantic.min.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
-    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="angular.js@1.3.x" src="http://code.angularjs.org/1.3.15/angular.js" data-semver="1.3.15"></script>
     <script src="app.js"></script>
     <script src="products.js"></script>
   </head>
 
   <body ng-controller="StoreController as store">
-    <!--  Store Header  -->
+    <!-- Store Header -->
     <header>
-      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h1 class="text-center">Disboard Crafted Gems</h1>
       <h2 class="text-center">– an Angular store –</h2>
+      <h3 class="gem-buttons">
+        <button type="button" id="add" ng-click="create.toggleAdd()"> New Gem </button>
+      </h3>
+
+      <!-- New gem form -->
+      <product-add ng-show=create.isVisible()></product-add>
     </header>
 
-    <!--  Products Container  -->
+    <!-- Products Container -->
     <div class="list-group">
-      <!--  Product Container  -->
-      <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+      <!-- Product Container -->
+      <div class="list-group-item" ng-repeat="product in store.products">
 
         <!-- $index Practice:  -->
         <h3>Gem #{{$index + 1}}: {{product.name | uppercase}}<em class="pull-right">{{product.price | currency}}</em>
         </h3>
 
-        <!-- Image Gallery  -->
+        <!-- Image Gallery
         <div ng-show="product.images.length" ng-controller="GalleryController as gallery">
           <div class="img-wrap">
             <img ng-src="{{product.images[gallery.imageIndex]}}" class="img-thumbnail center-block" />
@@ -41,10 +47,18 @@
               <img ng-src="{{image}}" />
             </li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- Product Tabs  -->
         <product-tabs></product-tabs>
+
+        <!-- Edit gem form -->
+        <product-edit ng-show=edit.isVisible()></product-edit>
+
+        <div class="gem-buttons">
+          <button type="button" id="edit" ng-click="edit.toggleEdit()"> Edit </button>
+          <button type="button" id="delete" ng-click="store.deleteGem(product.id)"> Delete </button>
+        </div>
 
       </div>
     </div>

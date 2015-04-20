@@ -33,3 +33,43 @@ app.directive("productTabs", function() {
     controllerAs: "tab"
   };
 });
+
+app.directive("productAdd", function() {
+  return {
+    restrict: "E",
+
+    templateUrl: "product-add.html",
+    controller: function() {
+      this.add = false;
+
+      this.isVisible = function() {
+        return this.add;
+      };
+
+      this.toggleAdd = function() {
+        this.add = !this.add;
+      };
+    },
+    controllerAs: "create"
+  };
+});
+
+app.directive("productEdit", function() {
+  return {
+    restrict: "E",
+
+    templateUrl: "product-edit.html",
+    controller: function() {
+      this.edit = false;
+
+      this.isVisible = function() {
+        return this.edit;
+      };
+
+      this.toggleEdit = function() {
+        this.edit = !this.edit;
+      };
+    },
+    controllerAs: "edit"
+  };
+});

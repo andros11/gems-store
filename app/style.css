@@ -83,3 +83,7 @@ img{
 .btn-primary:hover {
   background: #ac005f;
 }
+
+.gem-buttons {
+  text-align: center;
+}
