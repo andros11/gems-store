@@ -1,5 +1,3 @@
-// Code goes here
-
 (function() {
   var app = angular.module('gemStore', ['store-directives']);
 
@@ -15,8 +13,7 @@
     this.products = gems;
   });
 
-
-  app.controller("ReviewController", function(){
+  app.controller("ReviewController", function() {
 
     this.review = {};
 
