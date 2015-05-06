@@ -1,4 +1,4 @@
-body{
+body {
   max-width: 500px;
   margin: 0 auto;
 }
@@ -11,23 +11,27 @@ a:focus {
   text-decoration: underline;
 }
 
-ul{
+ul {
   padding: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
-li.small-image{
+li.small-image {
   width: 50px;
 }
 
-li.small-image img{
+li.small-image img {
   width: 100%;
 }
 
-img{
+fieldset {
+    border: 0;
+}
+
+img {
   max-width: 230px;
   max-height: 230px;
 }

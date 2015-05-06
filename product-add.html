@@ -1,0 +1,42 @@
+<div>
+  <!--  New Gem Toggle  -->
+  <div ng-show="add.hide">
+    <button ng-click="add.toggleHide()">New Gem</button>
+  </div>
+  <!--  Cancel  -->
+  <div ng-hide="add.hide">
+    <button ng-click="add.toggleHide()">Cancel</button>
+  </div>
+
+  <!--  New Gem Form  -->
+  <div ng-hide="add.hide">
+    <form name="addForm" role="form" ng-submit="add.addProduct()">
+      <!--  New Gem Form Fields  -->
+      <h4>Add a Gem</h4>
+      <fieldset class="form-group">
+        <input ng-model="add.newProduct.name" type="text" class="form-control" placeholder="Name" title="Name"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="add.newProduct.price" type="number" step="any" min="0" class="form-control" placeholder="Price" title="Price"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <textarea ng-model="add.newProduct.description" class="form-control" placeholder="Description" title="Description"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="add.newProduct.shine" type="number" min="0" class="form-control" placeholder="Shine" title="Shine"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="add.newProduct.faces" type="number" min="0" class="form-control" placeholder="Faces" title="Faces"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="add.newProduct.rarity" type="number" min="0" class="form-control" placeholder="Rarity" title="Rarity"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="add.newProduct.color" type="text" class="form-control" placeholder="Color" title="Color"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input type="submit" class="btn btn-primary pull-right" value="Save Gem"></input>
+      </fieldset>
+    </form>
+  </div>
+</div>

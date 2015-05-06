@@ -6,8 +6,8 @@
     <title>Dis Gem Store</title>
     <script data-require="jquery@*" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link data-require="bootstrap-css" data-semver="3.3.4" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <link data-require="semantic-ui@*" data-semver="1.12.1" rel="stylesheet" href="https://rawgit.com/Semantic-Org/Semantic-UI/1.12.1/dist/semantic.min.css" />
-    <script data-require="semantic-ui@*" data-semver="1.12.1" src="https://rawgit.com/Semantic-Org/Semantic-UI/1.12.1/dist/semantic.min.js"></script>
+    <link data-require="semantic-ui@*" data-semver="1.12.1" rel="stylesheet" href="https://cdn.rawgit.com/Semantic-Org/Semantic-UI/1.12.1/dist/semantic.min.css" />
+    <script data-require="semantic-ui@*" data-semver="1.12.1" src="https://cdn.rawgit.com/Semantic-Org/Semantic-UI/1.12.1/dist/semantic.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script data-require="angular.js@1.3.x" src="http://code.angularjs.org/1.3.15/angular.js" data-semver="1.3.15"></script>
     <script src="app.js"></script>
@@ -21,16 +21,19 @@
       <h2 class="text-center">– an Angular store –</h2>
     </header>
 
+    <!--  Add New Gem Section  -->
+    <product-add></product-add>
+
     <!--  Products Container  -->
     <div class="list-group">
       <!--  Product Container  -->
       <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
 
-        <!-- $index Practice:  -->
+        <!--  $index Practice:  -->
         <h3>Gem #{{$index + 1}}: {{product.name | uppercase}}<em class="pull-right">{{product.price | currency}}</em>
         </h3>
 
-        <!-- Image Gallery  -->
+        <!--  Image Gallery
         <div ng-show="product.images.length" ng-controller="GalleryController as gallery">
           <div class="img-wrap">
             <img ng-src="{{product.images[gallery.imageIndex]}}" class="img-thumbnail center-block" />
@@ -40,11 +43,16 @@
               <img ng-src="{{image}}" />
             </li>
           </ul>
-        </div>
+        </div>  -->
 
-        <!-- Product Tabs  -->
+        <!--  Product Tabs  -->
         <product-tabs></product-tabs>
 
+        <!--  Edit Gem  -->
+        <product-edit></product-edit>
+
+        <!--  Delete Gem  -->
+        <product-delete></product-delete>
       </div>
     </div>
   </body>

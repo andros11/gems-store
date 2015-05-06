@@ -1,0 +1,42 @@
+<div>
+  <!--  Edit Gem Toggle  -->
+  <div ng-show="edit.hide">
+    <button ng-click="edit.toggleHide()">Edit Gem</button>
+  </div>
+  <!--  Cancel  -->
+  <div ng-hide="edit.hide">
+    <button ng-click="edit.toggleHide()">Cancel</button>
+  </div>
+
+  <!--  Edit Gem Form  -->
+  <div ng-hide="edit.hide">
+    <form name="editForm" role="form" ng-submit="edit.updateProduct(product.id)">
+      <!--  Edit Gem Form Fields  -->
+      <h4>Edit Gem</h4>
+      <fieldset class="form-group">
+        <input ng-model="edit.newProduct.name" type="text" class="form-control" placeholder="Name" title="Name"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="edit.newProduct.price" type="number" step="any" min="0" class="form-control" placeholder="Price" title="Price"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <textarea ng-model="edit.newProduct.description" class="form-control" placeholder="Description" title="Description"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="edit.newProduct.shine" type="number" min="0" class="form-control" placeholder="Shine" title="Shine"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="edit.newProduct.faces" type="number" min="0" class="form-control" placeholder="Faces" title="Faces"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="edit.newProduct.rarity" type="number" min="0" class="form-control" placeholder="Rarity" title="Rarity"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="edit.newProduct.color" type="text" class="form-control" placeholder="Color" title="Color"></input>
+      </fieldset>
+      <fieldset class="form-group">
+        <input type="submit" class="btn btn-primary pull-right" value="Update Gem"></input>
+      </fieldset>
+    </form>
+  </div>
+</div>
