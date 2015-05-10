@@ -1,9 +1,9 @@
-#searchtext {
+#search-text {
   position: relative;
   float: right;
 }
 
-#searchbutton {
+#search-button {
   float: right;
   position: relative;
   bottom: 20px;

@@ -20,10 +20,15 @@
       <h1 class="text-center">Disboard Gem Store</h1>
     </header>
 
+    <!--  Search  -->
     <form>
-      <input id="searchtext" type="text" name="name" align="right" ng-model="store.product.search" placeholder="Search">
+      <input id="search-text" type="text" name="name" align="right" ng-model="store.search" placeholder="Search">
+      <select ng-model="store.searchType" class="form-control" ng-options="searchType for searchType in ['Name', 'Price', 'Review']" title="Search type">
+        <option value="">Choose search type</option>
+      </select>
       <br>
-      <input id="searchbutton" type="submit" ng-click="store.getGemsByName(store.product.search)">
+      <input id="search-button" type="button" ng-click="store.refreshGems()" value="Reset">
+      <input id="search-button" type="submit" ng-click="store.searchGems()" value="Search by {{store.searchType}}">
     </form>
 
     <!--  Add New Gem Section  -->

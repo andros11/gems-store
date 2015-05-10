@@ -11,40 +11,50 @@
 
   app.controller('StoreController', ['$http', function($http) {
     var store = this;
-    store.products = []; // this is so the page doesn't give an error when loading
+    store.products = [];
+    store.search = '';
+    store.searchType = 'Name';
+
+    // Fetch gems
     $http.get("http://localhost:9000/gems").success(function (data) {
       store.products = data;
     });
 
-    store.getGemsByName = function(search) {
+    store.refreshGems = function() {
+      $http.get("http://localhost:9000/gems").success(function (data) {
+        store.products = data;
+      });
+      store.search = '';
+    };
 
+    store.searchGems = function() {
       var temp = [];
-      var enter = 0;
-      var enter2 = 1;
+      var lcSearch = store.search.toLowerCase();
 
-      if (isNaN(parseFloat(search))) {
+      if (store.searchType === 'Name' && isNaN(parseFloat(store.search))) {
         for (i = 0; i < store.products.length; i++) {
-          if (store.products[i].name.indexOf(search) > -1) {
+          if (store.products[i].name.toLowerCase().indexOf(lcSearch) > -1) {
             temp.push(store.products[i]);
-            enter = 1;
           }
         }
+      }
 
-        if (enter === 0 && enter2 === 1) {
-          for (i = 0; i < store.products.length; i++) {
-            for (j = 0; j < store.products[i].reviews.length; j++) {
-              if (store.products[i].reviews[j].text.indexOf(search) > -1) {
-                temp.push(store.products[i]);
-              }
+      else if (store.searchType === 'Review' && isNaN(parseFloat(store.search))) {
+        for (i = 0; i < store.products.length; i++) {
+          for (j = 0; j < store.products[i].reviews.length; j++) {
+            if (store.products[i].reviews[j].title.toLowerCase().indexOf(lcSearch) > -1
+                || store.products[i].reviews[j].text.toLowerCase().indexOf(lcSearch) > -1
+                || store.products[i].reviews[j].author.toLowerCase().indexOf(lcSearch) > -1) {
+              temp.push(store.products[i]);
             }
           }
         }
       }
 
-      else {
-        var conversion = parseFloat(search);
+      else if (store.searchType === 'Price') {
+        var conversion = parseFloat(store.search);
         for (i = 0; i < store.products.length; i++) {
-          if (store.products[i].price === conversion) {
+          if (store.products[i].price <= conversion) {
             temp.push(store.products[i]);
           }
         }
