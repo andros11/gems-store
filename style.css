@@ -1,3 +1,14 @@
+#searchtext {
+  position: relative;
+  float: right;
+}
+
+#searchbutton {
+  float: right;
+  position: relative;
+  bottom: 20px;
+}
+
 body {
   max-width: 500px;
   margin: 0 auto;
@@ -29,6 +40,19 @@ li.small-image img {
 
 fieldset {
     border: 0;
+}
+
+.add-button {
+  margin-bottom: 5px;
+}
+
+.gem-button {
+  float: right;
+  margin: 0 3px;
+}
+
+.gem-managers {
+  overflow: hidden;
 }
 
 img {

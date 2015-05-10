@@ -16,6 +16,43 @@
       store.products = data;
     });
 
+    store.getGemsByName = function(search) {
+
+      var temp = [];
+      var enter = 0;
+      var enter2 = 1;
+
+      if (isNaN(parseFloat(search))) {
+        for (i = 0; i < store.products.length; i++) {
+          if (store.products[i].name.indexOf(search) > -1) {
+            temp.push(store.products[i]);
+            enter = 1;
+          }
+        }
+
+        if (enter === 0 && enter2 === 1) {
+          for (i = 0; i < store.products.length; i++) {
+            for (j = 0; j < store.products[i].reviews.length; j++) {
+              if (store.products[i].reviews[j].text.indexOf(search) > -1) {
+                temp.push(store.products[i]);
+              }
+            }
+          }
+        }
+      }
+
+      else {
+        var conversion = parseFloat(search);
+        for (i = 0; i < store.products.length; i++) {
+          if (store.products[i].price === conversion) {
+            temp.push(store.products[i]);
+          }
+        }
+      }
+
+      store.products = temp;
+    };
+
   }]);
 
   app.controller("ReviewController", ['$http', function($http) {

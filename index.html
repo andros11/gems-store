@@ -17,9 +17,14 @@
   <body ng-controller="StoreController as store">
     <!--  Store Header  -->
     <header>
-      <h1 class="text-center">Disboard Gems</h1>
-      <h2 class="text-center">– an Angular store –</h2>
+      <h1 class="text-center">Disboard Gem Store</h1>
     </header>
+
+    <form>
+      <input id="searchtext" type="text" name="name" align="right" ng-model="store.product.search" placeholder="Search">
+      <br>
+      <input id="searchbutton" type="submit" ng-click="store.getGemsByName(store.product.search)">
+    </form>
 
     <!--  Add New Gem Section  -->
     <product-add></product-add>
@@ -27,7 +32,7 @@
     <!--  Products Container  -->
     <div class="list-group">
       <!--  Product Container  -->
-      <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+      <div class="list-group-item" ng-repeat="product in store.products">
 
         <!--  $index Practice:  -->
         <h3>Gem #{{$index + 1}}: {{product.name | uppercase}}<em class="pull-right">{{product.price | currency}}</em>
@@ -48,11 +53,13 @@
         <!--  Product Tabs  -->
         <product-tabs></product-tabs>
 
-        <!--  Edit Gem  -->
-        <product-edit></product-edit>
+        <div class="gem-managers">
+          <!--  Delete Gem  -->
+          <product-delete></product-delete>
+          <!--  Edit Gem  -->
+          <product-edit></product-edit>
+        </div>
 
-        <!--  Delete Gem  -->
-        <product-delete></product-delete>
       </div>
     </div>
   </body>
